@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gravando Conteúdo de DIV</title>
+ 
+	<script type="text/javascript">
+		window.onload = function(){
+			document.getElementById("texto").innerHTML = localStorage.getItem("dados");
+		}
+ 
+		function gravar(){
+			var texto = document.getElementById("texto").innerHTML;	
+			localStorage.setItem("dados", texto);
+		}
+ 
+		function apagar(){
+			var texto = document.getElementById("texto");
+			texto.innerHTML = "";
+			localStorage.removeItem("dados");
+		}
+		function ler(){
+			var texto = document.getElementById("texto");
+			texto.innerHTML = localStorage.getItem("dados");
+		}
+	</script>
+</head>
+ 
+<body>
+	<h3>Digite um texto e clique em "Gravar" para armazená-lo ou em "Limpar" para apagá-lo.</h3>
+	<div id="texto" style="width:640px;height:180px;border:1px solid #000000;" contenteditable="true"></div>
+	<button onclick="javascript:gravar();">Gravar</button>
+	<button onclick="javascript:apagar();">Apagar</button>
+	<button onclick="javascript:ler();">Ler</button>
+</body>
+</html>
